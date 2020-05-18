@@ -48,7 +48,8 @@ void Game::endApplication()
 }
 
 void Game::updateDeltaTime() {
-	this->deltaTime = this->deltaTimeClock.getElapsedTime().asSeconds();
+
+	this->deltaTime = this->deltaTimeClock.restart().asSeconds();
 }
 
 void Game::updateSFMLEvents() {

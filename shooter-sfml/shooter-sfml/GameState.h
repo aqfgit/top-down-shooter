@@ -3,6 +3,9 @@
 class GameState :
 	public State
 {
+private:
+	Player player;
+
 public:
 	GameState(sf::RenderWindow* window);
 	~GameState();

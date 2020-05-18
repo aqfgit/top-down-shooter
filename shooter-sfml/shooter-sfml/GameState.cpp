@@ -21,12 +21,14 @@ void GameState::updateKeybinds(const float& deltaTime)
 void GameState::update(const float& deltaTime)
 {
 	this->updateKeybinds(deltaTime);
-	std::cout << "GameState working!!:))" << std::endl;
+	
+	this->player.update(deltaTime);
 
 }
 
 void GameState::render(sf::RenderTarget* target)
 {
+	this->player.render(this->window);
 }
 
 

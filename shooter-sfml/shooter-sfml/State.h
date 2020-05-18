@@ -1,19 +1,11 @@
 #pragma once
 
-#include <vector>
-#include <SFML/Window.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
-#include <stack>
-#include <map>
-#include <vector>
+#include "Unit.h";
+#include "Player.h";
 
 class State
 {
-private:
+protected:
 	sf::RenderWindow* window;
 	std::vector<sf::Texture> textures;
 
