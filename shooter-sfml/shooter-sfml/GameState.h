@@ -5,12 +5,14 @@ class GameState :
 	public State
 {
 private:
-	Player player;
-	Enemy enemy;
+	Player *player;
+	std::vector<Enemy*> enemies;
 
 	bool isBulletOffScreen(Bullet* bullet);
 	void updateBullets(std::vector<Bullet*>& bullets);
-	template<class Object1, class Object2> void checkForCollision(Object1 o1, Object2 o2);
+	
+	void deleteDeadEnemies();
+	void endGame();
 
 public:
 	GameState(sf::RenderWindow* window);
@@ -22,10 +24,19 @@ public:
 	void render(sf::RenderTarget* target = nullptr);
 };
 
-template<class Object1, class Object2>
-inline void GameState::checkForCollision(Object1 o1, Object2 o2)
+
+inline void GameState::deleteDeadEnemies()
 {
-	if (o1.getGlobalBounds().intersects(o2.getGlobalBounds())) {
-		std::cout << "kolizja" << std::endl;
+	int counter = 0;
+
+	for (auto* enemy : this->enemies) {
+		if (enemy->isDead()) {
+
+			delete this->enemies.at(counter);
+			this->enemies.erase(this->enemies.begin() + counter);
+			counter--;
+		}
+		counter++;
+
 	}
 }

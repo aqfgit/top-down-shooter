@@ -1,8 +1,10 @@
 #include "Enemy.h"
 
-Enemy::Enemy() {
-	this->x = 50.f;
+Enemy::Enemy(float x) {
+	this->x = x;
 	this->y = 0.f;
+	this->attackDamage = 5;
+	this->hitPoints = 4;
 	this->shootingCooldown = 2.f;
 	this->movementSpeed = 10.f;
 	this->shape.setSize(sf::Vector2f(30.f, 30.f));
@@ -12,7 +14,6 @@ Enemy::Enemy() {
 
 
 void Enemy::update(const float& deltaTime) {
-
 	this->shape.move(this->movementSpeed * sf::Vector2f(0, 1) * deltaTime);
 	
 	time2 = clock.getElapsedTime();

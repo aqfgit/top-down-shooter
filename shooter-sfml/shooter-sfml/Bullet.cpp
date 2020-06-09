@@ -17,6 +17,11 @@ sf::FloatRect Bullet::getBounds()
 	return this->shape.getGlobalBounds();
 }
 
+sf::RectangleShape Bullet::getShape()
+{
+	return this->shape;
+}
+
 void Bullet::update()
 {
 	this->shape.move(this->movementSpeed * this->direction);

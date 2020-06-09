@@ -3,6 +3,8 @@
 Player::Player() {
 	this->x = 200.f;
 	this->y = 500.f;
+	this->attackDamage = 2;
+	this->hitPoints = 10;
 	this->shootingCooldown = 0.4f;
 	this->movementSpeed = 100.f;
 	this->shape.setSize(sf::Vector2f(50.f, 50.f));
