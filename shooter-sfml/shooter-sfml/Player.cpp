@@ -9,6 +9,11 @@ Player::Player() {
 	this->shape.setPosition(sf::Vector2f(this->x, this->y));
 }
 
+std::vector<Bullet*>& Player::getBullets()
+{
+	return this->bullets;
+}
+
 void Player::move(float dirX, float dirY, float deltaTime) {
 	float xAxisMovement = dirX * this->movementSpeed * deltaTime;
 	float yAxisMovement = dirY * this->movementSpeed * deltaTime;
@@ -18,6 +23,8 @@ void Player::move(float dirX, float dirY, float deltaTime) {
 }
 
 void Player::update(const float& deltaTime) {
+	
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		this->move(-1.f, 0.f, deltaTime);
 	}
@@ -30,7 +37,14 @@ void Player::update(const float& deltaTime) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 		this->move(0.f, -1.f, deltaTime);
 	}
-	std::cout << "X: " << this->x << "Y: " << this->y << std::endl;
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		time2 = clock.getElapsedTime();
+		float dt = time2.asSeconds() - time1.asSeconds();
+		if (dt < 0.4) return;
+		this->bullets.push_back(new Bullet(this->x + 25, this->y - 5, 0.f, -1.f, 5));
+		time1 = clock.getElapsedTime();
+	}
 }
 
 void Player::render(sf::RenderTarget* target) {

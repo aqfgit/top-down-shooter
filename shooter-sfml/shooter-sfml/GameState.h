@@ -6,6 +6,9 @@ class GameState :
 private:
 	Player player;
 
+	bool isBulletOffScreen(Bullet* bullet);
+	void updateBullets(std::vector<Bullet*>& bullets);
+
 public:
 	GameState(sf::RenderWindow* window);
 	~GameState();
