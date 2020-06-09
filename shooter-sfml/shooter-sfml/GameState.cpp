@@ -24,6 +24,8 @@ void GameState::updateBullets(std::vector<Bullet*>& bullets)
 	}
 }
 
+
+
 GameState::GameState(sf::RenderWindow* window) : State(window)
 {
 }
@@ -46,9 +48,10 @@ void GameState::update(const float& deltaTime)
 {
 	this->updateKeybinds(deltaTime);
 	this->updateBullets(this->player.getBullets());
-	 
-	
+	this->updateBullets(this->enemy.getBullets());
+	this->checkForCollision(this->player.shape, this->enemy.shape);
 	this->player.update(deltaTime);
+	this->enemy.update(deltaTime);
 
 }
 
@@ -56,7 +59,11 @@ void GameState::update(const float& deltaTime)
 void GameState::render(sf::RenderTarget* target)
 {
 	this->player.render(this->window);
+	this->enemy.render(this->window);
 	for (auto *bullet : this->player.getBullets()) {
+		bullet->render(this->window);
+	}
+	for (auto* bullet : this->enemy.getBullets()) {
 		bullet->render(this->window);
 	}
 }

@@ -2,6 +2,7 @@
 
 #include "Unit.h";
 #include "Player.h";
+#include "Enemy.h"
 
 class State
 {

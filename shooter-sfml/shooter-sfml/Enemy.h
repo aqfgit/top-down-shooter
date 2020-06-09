@@ -1,8 +1,6 @@
 #pragma once
 #include "Unit.h"
-
-
-class Player :
+class Enemy :
 	public Unit
 {
 private:
@@ -10,7 +8,7 @@ private:
 	sf::Time time1, time2;
 
 public:
-	Player();
+	Enemy();
 
 	void update(const float& deltaTime);
 	void render(sf::RenderTarget* target = nullptr);

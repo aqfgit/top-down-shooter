@@ -9,16 +9,26 @@
 #include <map>
 #include <vector>
 
+#include "Bullet.h"
+
 class Unit
 {
 protected:
 	float movementSpeed;
 	float x, y;
+	float shootingCooldown;
+
+
+	std::vector<Bullet*> bullets;
 
 
 public:
+	sf::RectangleShape shape;
+
 	virtual void update(const float& deltaTime) = 0;
 	virtual void render(sf::RenderTarget* target = nullptr) = 0;
-	virtual void move(float dirX, float dirY, float deltaTime) = 0;
+
+	std::vector <Bullet*>& getBullets();
+
 };
 
