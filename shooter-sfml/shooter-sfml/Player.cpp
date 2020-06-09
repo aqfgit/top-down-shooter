@@ -4,12 +4,17 @@ Player::Player() {
 	this->x = 200.f;
 	this->y = 500.f;
 	this->attackDamage = 2;
-	this->hitPoints = 10;
+	this->hitPoints = 3;
 	this->shootingCooldown = 0.4f;
-	this->movementSpeed = 100.f;
+	this->movementSpeed = 200.f;
 	this->shape.setSize(sf::Vector2f(50.f, 50.f));
 	this->shape.setFillColor(sf::Color::Yellow);
 	this->shape.setPosition(sf::Vector2f(this->x, this->y));
+}
+
+int Player::getHitPoints()
+{
+	return this->hitPoints;
 }
 
 

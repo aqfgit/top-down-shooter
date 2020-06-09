@@ -18,7 +18,7 @@ protected:
 	float x, y;
 	float shootingCooldown;
 	float attackDamage;
-	float hitPoints;
+	int hitPoints;
 
 	bool dead;
 

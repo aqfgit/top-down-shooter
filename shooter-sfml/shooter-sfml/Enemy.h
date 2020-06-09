@@ -10,6 +10,8 @@ private:
 public:
 	Enemy(float x);
 
+	sf::FloatRect getBounds();
+	
 	void update(const float& deltaTime);
 	void render(sf::RenderTarget* target = nullptr);
 	

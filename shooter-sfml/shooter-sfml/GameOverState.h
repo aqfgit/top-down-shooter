@@ -8,9 +8,10 @@ private:
 	sf::Font font;
 	sf::Text gameOverText;
 	sf::Text playAgainText;
+	sf::Text scoreText;
 
 public:
-	GameOverState(sf::RenderWindow* window, std::stack<State*>* states);
+	GameOverState(sf::RenderWindow* window, std::stack<State*>* states, int score);
 
 	void endState();
 	void updateKeybinds(const float& deltaTime);
