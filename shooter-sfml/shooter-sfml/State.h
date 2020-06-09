@@ -9,11 +9,11 @@ class State
 protected:
 	sf::RenderWindow* window;
 	std::vector<sf::Texture> textures;
-
+	std::stack<State*>* states;
 	bool quit;
 
 public:
-	State(sf::RenderWindow* window);
+	State(sf::RenderWindow* window, std::stack<State*>* states);
 	virtual ~State();
 
 	const bool& getQuit() const;

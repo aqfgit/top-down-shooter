@@ -1,5 +1,6 @@
 #pragma once
 #include "State.h"
+#include "GameOverState.h"
 
 class GameState :
 	public State
@@ -12,10 +13,9 @@ private:
 	void updateBullets(std::vector<Bullet*>& bullets);
 	
 	void deleteDeadEnemies();
-	void endGame();
 
 public:
-	GameState(sf::RenderWindow* window);
+	GameState(sf::RenderWindow* window, std::stack<State*>* states);
 	~GameState();
 
 	void endState();

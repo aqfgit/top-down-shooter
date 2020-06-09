@@ -7,7 +7,7 @@ void Game::initWindow() {
 
 void Game::initStates()
 {
-	this->states.push(new GameState(this->window));
+	this->states.push(new GameState(this->window, &this->states));
 }
 
 Game::Game() {

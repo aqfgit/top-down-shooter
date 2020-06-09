@@ -24,7 +24,7 @@ void GameState::updateBullets(std::vector<Bullet*>& bullets)
 	}
 }
 
-GameState::GameState(sf::RenderWindow* window) : State(window)
+GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) : State(window, states)
 {
 	player = new Player();
 	for (int i = 0; i < 3; i++) {
@@ -38,16 +38,24 @@ GameState::~GameState()
 
 void GameState::endState()
 {
-	std::cout << "Ending GameState..." << std::endl;
 }
 
 void GameState::updateKeybinds(const float& deltaTime)
 {
 	this->checkForQuit();
+	
 }
 
 void GameState::update(const float& deltaTime)
 {
+	if (this->player->isDead()) {
+		this->quit = true;
+		this->states->push(new GameOverState(this->window, this->states));
+	}
+
+	if (this->enemies.size() == 0) {
+		this->states->push(new GameOverState(this->window, this->states));
+	}
 	this->deleteDeadEnemies();
 	for (auto* enemy : this->enemies) {
 		enemy->render(this->window);
