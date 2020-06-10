@@ -1,4 +1,0 @@
-﻿  GameOverState.cpp
-P:\College\C++\top-down-shooter\shooter-sfml\shooter-sfml\State.h(3,10): warning C4067: nieoczekiwane tokeny występujące po dyrektywie preprocesora - oczekiwano nowego wiersza
-P:\College\C++\top-down-shooter\shooter-sfml\shooter-sfml\State.h(4,10): warning C4067: nieoczekiwane tokeny występujące po dyrektywie preprocesora - oczekiwano nowego wiersza
-  shooter-sfml.vcxproj -> P:\College\C++\top-down-shooter\shooter-sfml\x64\Debug\shooter-sfml.exe
